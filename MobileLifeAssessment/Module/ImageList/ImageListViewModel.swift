@@ -21,6 +21,7 @@ class ImageListViewModel: NSObject {
     
     /// Input
     let imageList: BehaviorRelay<[ImageItem]> = BehaviorRelay(value: [])
+    let allImageList: BehaviorRelay<[ImageItem]> = BehaviorRelay(value: [])
    
     /// Variables
     var selectedImage: Driver<ImageItem> = .never()
@@ -35,7 +36,20 @@ class ImageListViewModel: NSObject {
     }
     
     private func setupObserver() {
-
+        imageList
+            .skip(1)
+            .subscribe(onNext: { [unowned self] images in
+                /// First page should reload the image list
+                if self.parentViewController.pageNo == 1 {
+                    self.allImageList.accept(images)
+                    return
+                }
+                /// Second page onward should append the list behind previous list
+                var allImages = self.allImageList.value
+                allImages += images
+                self.allImageList.accept(allImages)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -49,6 +63,7 @@ extension ImageListViewModel {
             switch response {
             case .success(let value):
                 self.imageList.accept(value)
+                self.parentViewController.isPageRefreshing = false
             case .failure(let error):
                 print(error.localizedDescription)
             }

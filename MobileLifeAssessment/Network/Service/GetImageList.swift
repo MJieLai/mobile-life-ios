@@ -11,7 +11,7 @@ import Alamofire
 extension APIService {
     func getImageList(page: Int, completionHandler: @escaping (Result<[ImageItem], Error>) -> Void) {
         
-        let getImageListUrl = "https://picsum.photos/v2/list?page=\(page)&limit=30"
+        let getImageListUrl = "https://picsum.photos/v2/list?page=\(page)&limit=20"
         
         let urlString: String = getImageListUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 

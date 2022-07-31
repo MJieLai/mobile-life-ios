@@ -16,6 +16,9 @@ class ImageListViewController: UIViewController {
     //* MARK:  Variables
     var viewModel: ImageListViewModel!
     let apiService = APIService()
+    /// Pagination
+    var pageNo: Int = 0
+    var isPageRefreshing:Bool = false
     
     //* MARK: Constant
     let imageListCollectionViewCellIdentifier: String = "ImageListCollectionViewCell"
@@ -35,8 +38,6 @@ class ImageListViewController: UIViewController {
         
         configureViews()
         setupObserver()
-        
-        self.viewModel.getImageList(pageNo: 1)
     }
     
     
@@ -50,11 +51,18 @@ class ImageListViewController: UIViewController {
             UINib(nibName: imageListCollectionViewCellIdentifier, bundle: Bundle.main),
             forCellWithReuseIdentifier: imageListCollectionViewCellIdentifier
         )
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        if #available(iOS 10, *) {
+            photoCollectionView.refreshControl = refreshControl
+        } else {
+            photoCollectionView.addSubview(refreshControl)
+        }
     }
     
     func setupObserver() {
         /// Bind data to collection view
-        viewModel.imageList.bind(to: photoCollectionView.rx.items(cellIdentifier: imageListCollectionViewCellIdentifier, cellType: ImageListCollectionViewCell.self)) { row, item, cell in
+        viewModel.allImageList.bind(to: photoCollectionView.rx.items(cellIdentifier: imageListCollectionViewCellIdentifier, cellType: ImageListCollectionViewCell.self)) { row, item, cell in
             cell.setupView(imageUrl: item.download_url)
         }.disposed(by: disposeBag)
         
@@ -67,10 +75,32 @@ class ImageListViewController: UIViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let vc = UIStoryboard.init(name: "ImageDetail", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageDetailViewController") as? ImageDetailViewController {
-                    vc.imageItem = self.viewModel.imageList.value[indexPath.row]
+                    vc.imageItem = self.viewModel.allImageList.value[indexPath.row]
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             })
+            .disposed(by: disposeBag)
+        
+        /// Refresh control set up
+        refreshControl
+            .rx
+            .controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.getImageList(pageNo: 1)
+                self.pageNo = 1
+            }, onCompleted: nil, onDisposed: nil)
+            .disposed(by: disposeBag)
+        
+        refreshControl
+            .rx
+            .controlEvent(.valueChanged)
+            .map { _ in self.refreshControl.isRefreshing }
+            .filter { $0 == true }
+            .subscribe { [weak self] _ in
+                guard let self = self else { return }
+                self.refreshControl.endRefreshing()
+            }
             .disposed(by: disposeBag)
     }
 }
@@ -81,5 +111,15 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDel
         let cellHeight = cellWidth
        
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(self.photoCollectionView.contentOffset.y >= (self.photoCollectionView.contentSize.height - self.photoCollectionView.bounds.size.height)) {
+            if !isPageRefreshing {
+                isPageRefreshing = true
+                pageNo = pageNo + 1
+                self.viewModel.getImageList(pageNo: pageNo)
+            }
+        }
     }
 }
