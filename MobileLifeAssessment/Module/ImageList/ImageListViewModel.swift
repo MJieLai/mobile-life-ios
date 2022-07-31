@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
-//import SwiftyUserDefaults
 
 class ImageListViewModel: NSObject {
     

@@ -27,10 +27,6 @@ class ImageListViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     
     //* MARK: -  LifeCycle
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +36,6 @@ class ImageListViewController: UIViewController {
         setupObserver()
     }
     
-    
-    //* MARK: - Helper
     /// Set up view
     func configureViews() {
         navigationItem.title = "Gallery"
@@ -52,6 +46,7 @@ class ImageListViewController: UIViewController {
             forCellWithReuseIdentifier: imageListCollectionViewCellIdentifier
         )
         
+        /// Declare refresh control 
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         if #available(iOS 10, *) {
             photoCollectionView.refreshControl = refreshControl

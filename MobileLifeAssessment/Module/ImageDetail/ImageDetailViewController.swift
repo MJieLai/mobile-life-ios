@@ -27,14 +27,9 @@ class ImageDetailViewController: UIViewController {
     @IBOutlet weak var sizingLabel: UILabel!
     
     /// Variables
-    var viewModel: ImageDetailViewModel!
-    let apiService = APIService()
-    
     var imageItem: ImageItem!
     var currentBlurValue: Float = 1
-    
-    private let disposeBag = DisposeBag()
-    
+        
     //* MARK: -  LifeCycle
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -43,19 +38,9 @@ class ImageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel = ImageDetailViewModel(apiService: apiService, parentViewController: self)
-        
         configureViews()
-        setupObserver()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
-        
-    }
-    
-    //* MARK: - Helper
     /// Set up view
     func configureViews() {
         self.navigationItem.title = "Photo Details"
@@ -63,13 +48,12 @@ class ImageDetailViewController: UIViewController {
         self.displayImage(filter: "")
         self.displayInfo()
         
+        /// Set up segment control action
         segmentControl.addTarget(self, action: #selector(self.segmentSelected(_ :)), for: .valueChanged)
+        /// Set up slider action
         blurSlider.addTarget(self, action: #selector(self.sliderChanged(_ :)), for: .valueChanged)
     }
-    
-    func setupObserver() {
-    }
-    
+
     @objc private func segmentSelected(_ sender: UISegmentedControl) {
         /// Only show slider when it is under Blur segment
         blurSliderWrapView.isHidden = (sender.selectedSegmentIndex != 1)
@@ -94,6 +78,7 @@ class ImageDetailViewController: UIViewController {
     }
 }
 
+//* MARK: - Helper
 extension ImageDetailViewController {
     func setupUI() {
         segmentControl.setTitle("Normal".localized(), forSegmentAt: 0)
