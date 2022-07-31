@@ -13,6 +13,10 @@ class ImageDetailViewController: UIViewController {
     //* MARK: - IBOutlet
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var photoImageView: UIImageView!
+    
+    @IBOutlet weak var blurSliderWrapView: UIView!
+    @IBOutlet weak var blurTitleLabel: UILabel!
+    @IBOutlet weak var blurValueLabel: UILabel!
     @IBOutlet weak var blurSlider: UISlider!
     
     @IBOutlet weak var imageIdTitleLabel: UILabel!
@@ -68,7 +72,7 @@ class ImageDetailViewController: UIViewController {
     
     @objc private func segmentSelected(_ sender: UISegmentedControl) {
         /// Only show slider when it is under Blur segment
-        blurSlider.isHidden = (sender.selectedSegmentIndex != 1)
+        blurSliderWrapView.isHidden = (sender.selectedSegmentIndex != 1)
         
         switch sender.selectedSegmentIndex {
         case 0: ///Normal
@@ -84,6 +88,8 @@ class ImageDetailViewController: UIViewController {
     @objc private func sliderChanged(_ sender: UISlider) {
         let sliderValue = sender.value
         currentBlurValue = sliderValue
+        
+        blurValueLabel.text = String(format: "%.2f", sliderValue)
         self.displayImage(filter: "?blur=\(sliderValue)")
     }
 }
@@ -97,7 +103,13 @@ extension ImageDetailViewController {
         blurSlider.isContinuous = false
         blurSlider.minimumValue = 1
         blurSlider.maximumValue = 10
-        blurSlider.isHidden = true
+        blurSliderWrapView.isHidden = true
+        blurTitleLabel.font = UIFont.systemFont(ofSize: 15)
+        blurTitleLabel.textColor = UIColor.darkGray
+        blurTitleLabel.text = "Amount of Blur:"
+        blurValueLabel.font = UIFont.systemFont(ofSize: 13)
+        blurValueLabel.textColor = UIColor.systemGray
+        blurValueLabel.text = "\(currentBlurValue)"
         
         imageIdTitleLabel.font = UIFont.systemFont(ofSize: 15)
         imageIdTitleLabel.textColor = UIColor.darkGray
