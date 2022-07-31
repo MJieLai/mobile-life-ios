@@ -65,7 +65,7 @@ extension ImageListViewModel {
                 self.imageList.accept(value)
                 self.parentViewController.isPageRefreshing = false
             case .failure(let error):
-                print(error.localizedDescription)
+                self.parentViewController.view.showToastOnTopStyle(error.localizedDescription)
             }
             spinner.dismissLoader()
         }

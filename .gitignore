@@ -511,3 +511,14 @@ Pods/Target Support Files/SwifterSwift/SwifterSwift-umbrella.h
 Pods/Target Support Files/SwifterSwift/SwifterSwift.debug.xcconfig
 Pods/Target Support Files/SwifterSwift/SwifterSwift.modulemap
 Pods/Target Support Files/SwifterSwift/SwifterSwift.release.xcconfig
+Pods/Pods.xcodeproj/xcuserdata/mj.xcuserdatad/xcschemes/Toast-Swift.xcscheme
+Pods/Target Support Files/Toast-Swift/Toast-Swift-dummy.m
+Pods/Target Support Files/Toast-Swift/Toast-Swift-Info.plist
+Pods/Target Support Files/Toast-Swift/Toast-Swift-prefix.pch
+Pods/Target Support Files/Toast-Swift/Toast-Swift-umbrella.h
+Pods/Target Support Files/Toast-Swift/Toast-Swift.debug.xcconfig
+Pods/Target Support Files/Toast-Swift/Toast-Swift.modulemap
+Pods/Target Support Files/Toast-Swift/Toast-Swift.release.xcconfig
+Pods/Toast-Swift/LICENSE
+Pods/Toast-Swift/README.md
+Pods/Toast-Swift/Toast/Toast.swift

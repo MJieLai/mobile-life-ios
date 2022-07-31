@@ -24,6 +24,7 @@ PODS:
   - SwifterSwift/SpriteKit (4.6.0)
   - SwifterSwift/SwiftStdlib (4.6.0)
   - SwifterSwift/UIKit (4.6.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
   - SwifterSwift (~> 4.6.0)
+  - Toast-Swift
 
 SPEC REPOS:
   trunk:
@@ -40,6 +42,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SwifterSwift
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
@@ -48,7 +51,8 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: f4d070856ebe9c578c84b8aa7eb15dd49e156598
+PODFILE CHECKSUM: 1d502a1a5129727073c1274266b06b5572f20092
 
 COCOAPODS: 1.11.2

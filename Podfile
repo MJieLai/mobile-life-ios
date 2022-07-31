@@ -11,5 +11,6 @@ target 'MobileLifeAssessment' do
   pod 'SwifterSwift', '~> 4.6.0'
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
+  pod 'Toast-Swift'
 
 end

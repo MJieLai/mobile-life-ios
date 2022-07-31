@@ -24,6 +24,7 @@
 		2D18E94A2894B952007E15C3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18E9492894B952007E15C3 /* Reachability.swift */; };
 		2DD64A0028962EC600CB6D48 /* ImageListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD649FF28962EC600CB6D48 /* ImageListCollectionViewCell.xib */; };
 		2DD64A0228962ECD00CB6D48 /* ImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD64A0128962ECD00CB6D48 /* ImageListCollectionViewCell.swift */; };
+		2DD64A0628967B6900CB6D48 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD64A0528967B6900CB6D48 /* UIView+Extension.swift */; };
 		8ED141E9A49875538764283B /* Pods_MobileLifeAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2E8277F1F20C192DE97D65 /* Pods_MobileLifeAssessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		2D18E9492894B952007E15C3 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2DD649FF28962EC600CB6D48 /* ImageListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DD64A0128962ECD00CB6D48 /* ImageListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DD64A0528967B6900CB6D48 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		36EEDA6FC21AE3E435BA9C58 /* Pods-MobileLifeAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLifeAssessment.debug.xcconfig"; path = "Target Support Files/Pods-MobileLifeAssessment/Pods-MobileLifeAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		3C2E8277F1F20C192DE97D65 /* Pods_MobileLifeAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileLifeAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C932CFAED1E5FE1A4F97FE1 /* Pods-MobileLifeAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLifeAssessment.release.xcconfig"; path = "Target Support Files/Pods-MobileLifeAssessment/Pods-MobileLifeAssessment.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				2D18E9322894B5D8007E15C3 /* Data+Extension.swift */,
 				2D18E9342894B5EA007E15C3 /* UIViewController+Extension.swift */,
 				2D18E9492894B952007E15C3 /* Reachability.swift */,
+				2DD64A0528967B6900CB6D48 /* UIView+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D18E9482894B796007E15C3 /* ImageDetailViewModel.swift in Sources */,
+				2DD64A0628967B6900CB6D48 /* UIView+Extension.swift in Sources */,
 				2D18E9402894B76F007E15C3 /* ImageListViewController.swift in Sources */,
 				2D159F182894BA8300A54786 /* GetImageList.swift in Sources */,
 				2D18E9422894B778007E15C3 /* ImageListViewModel.swift in Sources */,
