@@ -20,10 +20,10 @@ class ImageListViewModel: NSObject {
     let parentViewController: ImageListViewController
     
     /// Input
-    
-    
+    let imageList: BehaviorRelay<[ImageItem]> = BehaviorRelay(value: [])
+   
     /// Variables
-    
+    var selectedImage: Driver<ImageItem> = .never()
     
     init(apiService: APIService, parentViewController: ImageListViewController) {
         self.apiService = apiService
@@ -35,7 +35,7 @@ class ImageListViewModel: NSObject {
     }
     
     private func setupObserver() {
-        
+
     }
 }
 
@@ -45,12 +45,10 @@ extension ImageListViewModel {
     func getImageList(pageNo: Int) {
         let spinner = self.parentViewController.showLoader(view: self.parentViewController.view, isIgnoreInteraction: false)
         
-
         self.getImageList(pageNo: pageNo) { response in
             switch response {
             case .success(let value):
-                let message = value.results.isEmpty ? "No data found at the moment" : ""
-                
+                self.imageList.accept(value)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -58,7 +56,7 @@ extension ImageListViewModel {
         }
     }
     
-    func getImageList(pageNo: Int, completionHandler: @escaping(Result<GetImageListResponse, Error>) -> Void){
+    func getImageList(pageNo: Int, completionHandler: @escaping(Result<[ImageItem], Error>) -> Void){
         apiService.getImageList(page: pageNo) { response in
             switch response {
             case .success(let value):

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 extension APIService {
-    func getImageList(page: Int, completionHandler: @escaping (Result<GetImageListResponse, Error>) -> Void) {
+    func getImageList(page: Int, completionHandler: @escaping (Result<[ImageItem], Error>) -> Void) {
         
         let getImageListUrl = "https://picsum.photos/v2/list?page=\(page)&limit=30"
         
@@ -25,7 +25,7 @@ extension APIService {
         APIService.publicRequest(url: url, method: .get, parameters: nil, headers: HTTPHeaders.jsonHeader()) { (response) in
             switch response {
             case .success(let data):
-                if let response: GetImageListResponse = try? JSONDecoder().decode(GetImageListResponse.self, from: data) {
+                if let response: [ImageItem] = try? JSONDecoder().decode([ImageItem].self, from: data) {
                     DispatchQueue.main.async {
                         completionHandler(.success(response))
                     }

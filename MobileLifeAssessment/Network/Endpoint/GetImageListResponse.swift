@@ -8,19 +8,6 @@
 import Foundation
 
 /// GetImageList API response data
-class GetImageListResponse: Decodable {
-    var results: [ImageItem] = []
-    
-    enum CodingKeys: String, CodingKey {
-        case results = "results"
-    }
-
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        results = try values.decodeIfPresent(Array.self, forKey: .results) ?? []
-    }
-}
-
 struct ImageItem: Codable {
     var id: String = ""
     var author: String = ""

@@ -24,6 +24,8 @@
 		2D18E9462894B78B007E15C3 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18E9452894B78B007E15C3 /* ImageDetailViewController.swift */; };
 		2D18E9482894B796007E15C3 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18E9472894B796007E15C3 /* ImageDetailViewModel.swift */; };
 		2D18E94A2894B952007E15C3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18E9492894B952007E15C3 /* Reachability.swift */; };
+		2DD64A0028962EC600CB6D48 /* ImageListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD649FF28962EC600CB6D48 /* ImageListCollectionViewCell.xib */; };
+		2DD64A0228962ECD00CB6D48 /* ImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD64A0128962ECD00CB6D48 /* ImageListCollectionViewCell.swift */; };
 		8ED141E9A49875538764283B /* Pods_MobileLifeAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2E8277F1F20C192DE97D65 /* Pods_MobileLifeAssessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		2D18E9452894B78B007E15C3 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		2D18E9472894B796007E15C3 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
 		2D18E9492894B952007E15C3 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2DD649FF28962EC600CB6D48 /* ImageListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListCollectionViewCell.xib; sourceTree = "<group>"; };
+		2DD64A0128962ECD00CB6D48 /* ImageListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCollectionViewCell.swift; sourceTree = "<group>"; };
 		36EEDA6FC21AE3E435BA9C58 /* Pods-MobileLifeAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLifeAssessment.debug.xcconfig"; path = "Target Support Files/Pods-MobileLifeAssessment/Pods-MobileLifeAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		3C2E8277F1F20C192DE97D65 /* Pods_MobileLifeAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileLifeAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C932CFAED1E5FE1A4F97FE1 /* Pods-MobileLifeAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLifeAssessment.release.xcconfig"; path = "Target Support Files/Pods-MobileLifeAssessment/Pods-MobileLifeAssessment.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				2D18E93D2894B75E007E15C3 /* ImageList.storyboard */,
 				2D18E93F2894B76F007E15C3 /* ImageListViewController.swift */,
 				2D18E9412894B778007E15C3 /* ImageListViewModel.swift */,
+				2DD649FE28962EB100CB6D48 /* View */,
 			);
 			path = ImageList;
 			sourceTree = "<group>";
@@ -186,6 +191,15 @@
 				2D18E9472894B796007E15C3 /* ImageDetailViewModel.swift */,
 			);
 			path = ImageDetail;
+			sourceTree = "<group>";
+		};
+		2DD649FE28962EB100CB6D48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DD649FF28962EC600CB6D48 /* ImageListCollectionViewCell.xib */,
+				2DD64A0128962ECD00CB6D48 /* ImageListCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6241C8603610F03574254311 /* Frameworks */ = {
@@ -257,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D18E9262894B4CA007E15C3 /* LaunchScreen.storyboard in Resources */,
+				2DD64A0028962EC600CB6D48 /* ImageListCollectionViewCell.xib in Resources */,
 				2D18E9232894B4CA007E15C3 /* Assets.xcassets in Resources */,
 				2D18E93E2894B75E007E15C3 /* ImageList.storyboard in Resources */,
 				2D18E9442894B780007E15C3 /* ImageDetail.storyboard in Resources */,
@@ -320,6 +335,7 @@
 				2D159F1A2894BADB00A54786 /* GetImageListResponse.swift in Sources */,
 				2D18E93A2894B636007E15C3 /* APIService.swift in Sources */,
 				2D18E94A2894B952007E15C3 /* Reachability.swift in Sources */,
+				2DD64A0228962ECD00CB6D48 /* ImageListCollectionViewCell.swift in Sources */,
 				2D18E91A2894B4CA007E15C3 /* AppDelegate.swift in Sources */,
 				2D159F1C2894BC1100A54786 /* GetImageDetail.swift in Sources */,
 				2D18E9332894B5D8007E15C3 /* Data+Extension.swift in Sources */,
