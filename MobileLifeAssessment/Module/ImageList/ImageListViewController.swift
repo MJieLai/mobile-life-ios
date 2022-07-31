@@ -66,9 +66,10 @@ class ImageListViewController: UIViewController {
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                let vc = UIStoryboard.init(name: "ImageDetail", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageDetailViewController") as? ImageDetailViewController
-                
-                self.navigationController?.pushViewController(vc!, animated: true)
+                if let vc = UIStoryboard.init(name: "ImageDetail", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageDetailViewController") as? ImageDetailViewController {
+                    vc.imageItem = self.viewModel.imageList.value[indexPath.row]
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             })
             .disposed(by: disposeBag)
     }
