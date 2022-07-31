@@ -63,7 +63,7 @@ class ImageListViewController: UIViewController {
     func setupObserver() {
         /// Bind data to collection view
         viewModel.allImageList.bind(to: photoCollectionView.rx.items(cellIdentifier: imageListCollectionViewCellIdentifier, cellType: ImageListCollectionViewCell.self)) { row, item, cell in
-            cell.setupView(imageUrl: item.download_url)
+            cell.setupView(imageItem: item)
         }.disposed(by: disposeBag)
         
         photoCollectionView.rx.setDelegate(self).disposed(by: disposeBag)

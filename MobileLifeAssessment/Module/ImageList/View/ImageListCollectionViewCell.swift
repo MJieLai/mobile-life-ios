@@ -21,8 +21,13 @@ class ImageListCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func setupView(imageUrl: String) {
-        photoImageView.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "placeholder"))
+    func setupView(imageItem: ImageItem) {
+        /// Replace width to smaller size
+        var modifiedImageUrl = imageItem.download_url.replacingOccurrences(of: "\(imageItem.width)", with: "200")
+        /// Replace height to smaller size
+        modifiedImageUrl = modifiedImageUrl.replacingOccurrences(of: "\(imageItem.height)", with: "200")
+        
+        photoImageView.kf.setImage(with: URL(string: modifiedImageUrl), placeholder: UIImage(named: "placeholder"))
     }
 
 }
