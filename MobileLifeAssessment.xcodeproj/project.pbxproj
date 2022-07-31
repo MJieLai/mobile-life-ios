@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D159F182894BA8300A54786 /* GetImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159F172894BA8300A54786 /* GetImageList.swift */; };
 		2D159F1A2894BADB00A54786 /* GetImageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159F192894BADB00A54786 /* GetImageListResponse.swift */; };
-		2D159F1C2894BC1100A54786 /* GetImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159F1B2894BC1100A54786 /* GetImageDetail.swift */; };
-		2D159F1E2894BC2200A54786 /* GetImageDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D159F1D2894BC2200A54786 /* GetImageDetailResponse.swift */; };
 		2D18E91A2894B4CA007E15C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D18E9192894B4CA007E15C3 /* AppDelegate.swift */; };
 		2D18E9232894B4CA007E15C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D18E9222894B4CA007E15C3 /* Assets.xcassets */; };
 		2D18E9262894B4CA007E15C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D18E9242894B4CA007E15C3 /* LaunchScreen.storyboard */; };
@@ -32,8 +30,6 @@
 /* Begin PBXFileReference section */
 		2D159F172894BA8300A54786 /* GetImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageList.swift; sourceTree = "<group>"; };
 		2D159F192894BADB00A54786 /* GetImageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageListResponse.swift; sourceTree = "<group>"; };
-		2D159F1B2894BC1100A54786 /* GetImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageDetail.swift; sourceTree = "<group>"; };
-		2D159F1D2894BC2200A54786 /* GetImageDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageDetailResponse.swift; sourceTree = "<group>"; };
 		2D18E9162894B4CA007E15C3 /* MobileLifeAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileLifeAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D18E9192894B4CA007E15C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D18E9222894B4CA007E15C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				2D159F192894BADB00A54786 /* GetImageListResponse.swift */,
-				2D159F1D2894BC2200A54786 /* GetImageDetailResponse.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -167,7 +162,6 @@
 			children = (
 				2D18E9392894B636007E15C3 /* APIService.swift */,
 				2D159F172894BA8300A54786 /* GetImageList.swift */,
-				2D159F1B2894BC1100A54786 /* GetImageDetail.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -337,9 +331,7 @@
 				2D18E94A2894B952007E15C3 /* Reachability.swift in Sources */,
 				2DD64A0228962ECD00CB6D48 /* ImageListCollectionViewCell.swift in Sources */,
 				2D18E91A2894B4CA007E15C3 /* AppDelegate.swift in Sources */,
-				2D159F1C2894BC1100A54786 /* GetImageDetail.swift in Sources */,
 				2D18E9332894B5D8007E15C3 /* Data+Extension.swift in Sources */,
-				2D159F1E2894BC2200A54786 /* GetImageDetailResponse.swift in Sources */,
 				2D18E9462894B78B007E15C3 /* ImageDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
