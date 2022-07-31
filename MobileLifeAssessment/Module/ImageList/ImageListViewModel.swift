@@ -57,7 +57,7 @@ class ImageListViewModel: NSObject {
 extension ImageListViewModel {
     //* MARK: GetImageList
     func getImageList(pageNo: Int) {
-        let spinner = self.parentViewController.showLoader(view: self.parentViewController.view, isIgnoreInteraction: false)
+        let spinner = self.parentViewController.showLoader(view: self.parentViewController.view)
         
         self.getImageList(pageNo: pageNo) { response in
             switch response {

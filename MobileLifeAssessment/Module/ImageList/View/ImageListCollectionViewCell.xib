@@ -32,7 +32,7 @@
             <viewLayoutGuide key="safeArea" id="0BW-A3-gfc"/>
             <size key="customSize" width="522.5" height="387"/>
             <connections>
-                <outlet property="phototImageView" destination="2aJ-XT-iCC" id="GzU-lw-a8r"/>
+                <outlet property="photoImageView" destination="2aJ-XT-iCC" id="GzU-lw-a8r"/>
             </connections>
             <point key="canvasLocation" x="-1.4492753623188408" y="-134.26339285714286"/>
         </collectionViewCell>

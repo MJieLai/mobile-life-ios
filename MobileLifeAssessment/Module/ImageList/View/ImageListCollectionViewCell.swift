@@ -13,7 +13,7 @@ import RxCocoa
 class ImageListCollectionViewCell: UICollectionViewCell {
         
     //* MARK: - IBOutlet
-    @IBOutlet weak var phototImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     //* MARK: - Lifecycle
     override func awakeFromNib() {
@@ -22,7 +22,7 @@ class ImageListCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView(imageUrl: String) {
-        phototImageView.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "placeholder"))
+        photoImageView.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "placeholder"))
     }
 
 }

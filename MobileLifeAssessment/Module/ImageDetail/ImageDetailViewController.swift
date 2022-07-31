@@ -27,6 +27,7 @@ class ImageDetailViewController: UIViewController {
     let apiService = APIService()
     
     var imageItem: ImageItem!
+    var currentBlurValue: Float = 1
     
     private let disposeBag = DisposeBag()
     
@@ -73,7 +74,7 @@ class ImageDetailViewController: UIViewController {
         case 0: ///Normal
             self.displayImage(filter: "")
         case 1: ///Blur
-            self.displayImage(filter: "?blur=1")
+            self.displayImage(filter: "?blur=\(currentBlurValue)")
         case 2: ///Grayscale
             self.displayImage(filter: "?grayscale")
         default: break
@@ -82,6 +83,7 @@ class ImageDetailViewController: UIViewController {
     
     @objc private func sliderChanged(_ sender: UISlider) {
         let sliderValue = sender.value
+        currentBlurValue = sliderValue
         self.displayImage(filter: "?blur=\(sliderValue)")
     }
 }
@@ -117,8 +119,16 @@ extension ImageDetailViewController {
     }
     
     func displayImage(filter: String) {
-        photoImageView.kf.setImage(with: URL(string: imageItem.download_url + filter), placeholder: UIImage(named: "placeholder"))
-        print(imageItem.download_url + filter)
+        let spinner = self.showLoader(view: self.view)
+        photoImageView.kf.setImage(with: URL(string: imageItem.download_url + filter), completionHandler: { result in
+            spinner.dismissLoader()
+            switch result {
+            case .success(let value):
+                self.photoImageView.image = value.image
+            case .failure(_):
+                self.photoImageView.image = UIImage(named: "placeholder")
+            }
+        })
     }
     
     func displayInfo() {
